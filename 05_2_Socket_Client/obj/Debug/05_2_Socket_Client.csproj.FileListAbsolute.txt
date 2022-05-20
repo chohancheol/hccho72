@@ -1,0 +1,6 @@
+C:\Source\Test\TCT\TctStudy\05_2_Socket_Client\bin\Debug\05_2_Socket_Client.exe.config
+C:\Source\Test\TCT\TctStudy\05_2_Socket_Client\bin\Debug\05_2_Socket_Client.exe
+C:\Source\Test\TCT\TctStudy\05_2_Socket_Client\bin\Debug\05_2_Socket_Client.pdb
+C:\Source\Test\TCT\TctStudy\05_2_Socket_Client\obj\Debug\05_2_Socket_Client.csproj.CoreCompileInputs.cache
+C:\Source\Test\TCT\TctStudy\05_2_Socket_Client\obj\Debug\05_2_Socket_Client.exe
+C:\Source\Test\TCT\TctStudy\05_2_Socket_Client\obj\Debug\05_2_Socket_Client.pdb

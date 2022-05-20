@@ -1,0 +1,7 @@
+C:\Source\Test\TCT\TctStudy\02_Data\bin\Debug\02_Data.exe.config
+C:\Source\Test\TCT\TctStudy\02_Data\bin\Debug\02_Data.exe
+C:\Source\Test\TCT\TctStudy\02_Data\bin\Debug\02_Data.pdb
+C:\Source\Test\TCT\TctStudy\02_Data\obj\Debug\02_Data.csprojAssemblyReference.cache
+C:\Source\Test\TCT\TctStudy\02_Data\obj\Debug\02_Data.csproj.CoreCompileInputs.cache
+C:\Source\Test\TCT\TctStudy\02_Data\obj\Debug\02_Data.exe
+C:\Source\Test\TCT\TctStudy\02_Data\obj\Debug\02_Data.pdb

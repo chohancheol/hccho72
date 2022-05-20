@@ -1,0 +1,10 @@
+C:\Source\Test\TCT\TctStudy\06_Json\bin\Debug\06_Json.exe.config
+C:\Source\Test\TCT\TctStudy\06_Json\bin\Debug\06_Json.exe
+C:\Source\Test\TCT\TctStudy\06_Json\bin\Debug\06_Json.pdb
+C:\Source\Test\TCT\TctStudy\06_Json\bin\Debug\Newtonsoft.Json.dll
+C:\Source\Test\TCT\TctStudy\06_Json\bin\Debug\Newtonsoft.Json.xml
+C:\Source\Test\TCT\TctStudy\06_Json\obj\Debug\06_Json.csprojAssemblyReference.cache
+C:\Source\Test\TCT\TctStudy\06_Json\obj\Debug\06_Json.csproj.CoreCompileInputs.cache
+C:\Source\Test\TCT\TctStudy\06_Json\obj\Debug\06_Json.csproj.CopyComplete
+C:\Source\Test\TCT\TctStudy\06_Json\obj\Debug\06_Json.exe
+C:\Source\Test\TCT\TctStudy\06_Json\obj\Debug\06_Json.pdb

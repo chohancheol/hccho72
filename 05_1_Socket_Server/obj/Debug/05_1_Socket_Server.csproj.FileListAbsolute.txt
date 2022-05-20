@@ -1,0 +1,7 @@
+C:\Source\Test\TCT\TctStudy\05_1_Socket_Server\bin\Debug\05_1_Socket_Server.exe.config
+C:\Source\Test\TCT\TctStudy\05_1_Socket_Server\bin\Debug\05_1_Socket_Server.exe
+C:\Source\Test\TCT\TctStudy\05_1_Socket_Server\bin\Debug\05_1_Socket_Server.pdb
+C:\Source\Test\TCT\TctStudy\05_1_Socket_Server\obj\Debug\05_1_Socket_Server.csprojAssemblyReference.cache
+C:\Source\Test\TCT\TctStudy\05_1_Socket_Server\obj\Debug\05_1_Socket_Server.csproj.CoreCompileInputs.cache
+C:\Source\Test\TCT\TctStudy\05_1_Socket_Server\obj\Debug\05_1_Socket_Server.exe
+C:\Source\Test\TCT\TctStudy\05_1_Socket_Server\obj\Debug\05_1_Socket_Server.pdb

@@ -1,0 +1,6 @@
+C:\Source\Test\TCT\TctStudy\03_Exec_Thread\bin\Debug\03_Exec_Thread.exe.config
+C:\Source\Test\TCT\TctStudy\03_Exec_Thread\bin\Debug\03_Exec_Thread.exe
+C:\Source\Test\TCT\TctStudy\03_Exec_Thread\bin\Debug\03_Exec_Thread.pdb
+C:\Source\Test\TCT\TctStudy\03_Exec_Thread\obj\Debug\03_Exec_Thread.csproj.CoreCompileInputs.cache
+C:\Source\Test\TCT\TctStudy\03_Exec_Thread\obj\Debug\03_Exec_Thread.exe
+C:\Source\Test\TCT\TctStudy\03_Exec_Thread\obj\Debug\03_Exec_Thread.pdb

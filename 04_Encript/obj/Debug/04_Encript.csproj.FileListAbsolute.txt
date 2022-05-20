@@ -1,0 +1,7 @@
+C:\Source\Test\TCT\TctStudy\04_Encript\bin\Debug\04_Encript.exe.config
+C:\Source\Test\TCT\TctStudy\04_Encript\bin\Debug\04_Encript.exe
+C:\Source\Test\TCT\TctStudy\04_Encript\bin\Debug\04_Encript.pdb
+C:\Source\Test\TCT\TctStudy\04_Encript\obj\Debug\04_Encript.csprojAssemblyReference.cache
+C:\Source\Test\TCT\TctStudy\04_Encript\obj\Debug\04_Encript.csproj.CoreCompileInputs.cache
+C:\Source\Test\TCT\TctStudy\04_Encript\obj\Debug\04_Encript.exe
+C:\Source\Test\TCT\TctStudy\04_Encript\obj\Debug\04_Encript.pdb
