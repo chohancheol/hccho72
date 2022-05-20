@@ -1,0 +1,6 @@
+C:\Source\Test\TCT\TctStudy\07_Http_Client\bin\Debug\07_Http_Client.exe.config
+C:\Source\Test\TCT\TctStudy\07_Http_Client\bin\Debug\07_Http_Client.exe
+C:\Source\Test\TCT\TctStudy\07_Http_Client\bin\Debug\07_Http_Client.pdb
+C:\Source\Test\TCT\TctStudy\07_Http_Client\obj\Debug\07_Http_Client.csproj.CoreCompileInputs.cache
+C:\Source\Test\TCT\TctStudy\07_Http_Client\obj\Debug\07_Http_Client.exe
+C:\Source\Test\TCT\TctStudy\07_Http_Client\obj\Debug\07_Http_Client.pdb

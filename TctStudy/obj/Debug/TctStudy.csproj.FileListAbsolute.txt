@@ -1,0 +1,10 @@
+C:\Source\Test\TCT\TctStudy\TctStudy\bin\Debug\TctStudy.exe.config
+C:\Source\Test\TCT\TctStudy\TctStudy\bin\Debug\TctStudy.exe
+C:\Source\Test\TCT\TctStudy\TctStudy\bin\Debug\TctStudy.pdb
+C:\Source\Test\TCT\TctStudy\TctStudy\obj\Debug\TctStudy.csprojAssemblyReference.cache
+C:\Source\Test\TCT\TctStudy\TctStudy\obj\Debug\TctStudy.csproj.CoreCompileInputs.cache
+C:\Source\Test\TCT\TctStudy\TctStudy\obj\Debug\TctStudy.exe
+C:\Source\Test\TCT\TctStudy\TctStudy\obj\Debug\TctStudy.pdb
+C:\Users\hccho\Documents\hccho\hccho72\TctStudy\bin\Debug\TctStudy.exe.config
+C:\Users\hccho\Documents\hccho\hccho72\TctStudy\obj\Debug\TctStudy.exe
+C:\Users\hccho\Documents\hccho\hccho72\TctStudy\obj\Debug\TctStudy.pdb

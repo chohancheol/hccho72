@@ -1,0 +1,7 @@
+C:\Source\Test\TCT\TctStudy\07_Http\bin\Debug\07_Http.exe.config
+C:\Source\Test\TCT\TctStudy\07_Http\bin\Debug\07_Http.exe
+C:\Source\Test\TCT\TctStudy\07_Http\bin\Debug\07_Http.pdb
+C:\Source\Test\TCT\TctStudy\07_Http\obj\Debug\07_Http.csproj.CoreCompileInputs.cache
+C:\Source\Test\TCT\TctStudy\07_Http\obj\Debug\07_Http.exe
+C:\Source\Test\TCT\TctStudy\07_Http\obj\Debug\07_Http.pdb
+C:\Source\Test\TCT\TctStudy\07_Http\obj\Debug\07_Http.csprojAssemblyReference.cache
