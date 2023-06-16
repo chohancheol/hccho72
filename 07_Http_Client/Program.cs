@@ -13,6 +13,8 @@ namespace _07_Http_Client
     {
         static readonly HttpClient httpClient = new HttpClient();
 
+        
+        
         static void Main(string[] args)
         {
             //HttpClient client = new HttpClient();
