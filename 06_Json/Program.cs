@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,8 @@ namespace _06_Json
 {
     class Program
     {
+        //https://www.zetcode.com/csharp/json-net/
+        //https://www.zetcode.com/csharp/json/
         static void Main(string[] args)
         {
             JObject json = new JObject();
