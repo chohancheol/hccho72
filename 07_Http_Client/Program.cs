@@ -1,170 +1,188 @@
-﻿using System;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _07_Http_Client
+namespace _07_Http
 {
     class Program
     {
-        static readonly HttpClient httpClient = new HttpClient();
+        //https://www.zetcode.com/csharp/json/
+        //https://www.zetcode.com/csharp/httplistener/
+        //https://www.zetcode.com/csharp/httpclient/
 
-        
-        
         static void Main(string[] args)
         {
-            //HttpClient client = new HttpClient();
-            //var res = client.GetAsync("http://127.0.0.1:8080/helloworld").Result;
+            HttpListener listener = new HttpListener();
+            listener.Prefixes.Add("http://127.0.0.1:8080/");
+            listener.Start();
 
-            //Console.WriteLine("Response : " + res.StatusCode);
-
-
-            string strTest = "http://127.0.0.1:8080/helloworld";
-            Test(strTest).GetAwaiter().GetResult();
-
-            Console.WriteLine($" ---------- END ------------");
-
-            string httpsUrl = "https://jsonplaceholder.typicode.com/todos/1";
-            string httpUrl = "http://jsonplaceholder.typicode.com/todos/2";
-
-            Console.WriteLine($" -------- HTTPS ------------");
-
-            Test(httpsUrl).GetAwaiter().GetResult();  // Main함수에서 await Test(httpsUrl) 사용못하므로, 이를 대신함
-
-            Console.WriteLine($"\n\n\n --------- HTTP ------------");
-
-            Test(httpUrl).GetAwaiter().GetResult();
-
-            Console.WriteLine($" ---------- END ------------");
-
-
-
-            Console.Read();
-
-
-
-        }
-
-        //https://freeprog.tistory.com/456 [취미로 하는 프로그래밍 !!!]
-        static async Task Test(string url)
-        {
-            try
+            while (true)
             {
-                using (var response = await httpClient.GetAsync(url))
-                {
-                    Console.WriteLine(response.StatusCode);
+                var context = listener.GetContext();
+                Console.WriteLine("Request : " + context.Request.Url);
 
-                    if (HttpStatusCode.OK == response.StatusCode)
+                byte[] data = Encoding.UTF8.GetBytes("HelloWorld1");
+
+                var response = context.Response;
+
+                switch (context.Request.HttpMethod)
+                {
+                    case "GET":
+                        //Get the current settings
+                        response.ContentType = "application/json";
+
+                        //This is what we want to send back
+                        var responseBody = ""; // JsonConvert.SerializeObject(MyApplicationSettings);
+
+                        //Write it to the response stream
+                        var buffer = Encoding.UTF8.GetBytes(responseBody);
+                        response.ContentLength64 = buffer.Length;
+                        response.OutputStream.Write(buffer, 0, buffer.Length);
+                        //handled = true;
+                        break;
+
+                    case "PUT":
+                        //Update the settings
+                        using (var body = context.Request.InputStream)
+                        using (var reader = new StreamReader(body, context.Request.ContentEncoding))
+                        {
+                            //Get the data that was sent to us
+                            var json = reader.ReadToEnd();
+
+                            //Use it to update our settings
+                            //UpdateSettings(JsonConvert.DeserializeObject<MySettings>(json));
+
+                            //Return 204 No Content to say we did it successfully
+                            response.StatusCode = 204;
+                            //handled = true;
+                        }
+                        break;
+
+                }
+
+                context.Response.OutputStream.Write(data, 0, data.Length);
+                context.Response.StatusCode = 200;
+                context.Response.Close();
+            }
+
+
+
+            /*
+            bool isReturningOk = true;
+            Console.Title = "Samples.CustomChecks.3rdPartySystem";
+            Console.WriteLine("Press enter key to toggle the server to return a error or success");
+            Console.WriteLine("Press any key to exit");
+
+            HttpListener listener = new HttpListener();
+            using (listener = new HttpListener())
+            {
+                listener.Prefixes.Add("http://127.0.0.1:8080/");
+                listener.Start();
+                //listener.BeginGetContext(ListenerCallback, listener);
+
+                while (true)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    Console.WriteLine();
+
+                    if (key.Key != ConsoleKey.Enter)
                     {
-                        string body = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine(body);
+                        return;
+                    }
+                    listener.Close();
+                    if (isReturningOk)
+                    {
+                        Console.WriteLine("\r\nCurrently returning success");
                     }
                     else
                     {
-                        Console.WriteLine($" -- response.ReasonPhrase ==> {response.ReasonPhrase}");
+                        Console.WriteLine("\r\nCurrently returning error");
                     }
+                    isReturningOk = !isReturningOk;
                 }
+            } 
+            */
 
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"ex.Message={ex.Message}");
-                Console.WriteLine($"ex.InnerException.Message = {ex.InnerException.Message}");
-
-                Console.WriteLine($"----------- 서버에 연결할수없습니다 ---------------------");
-            }
-            catch (Exception ex2)
-            {
-                Console.WriteLine($"Exception={ex2.Message}");
-            }
         }
 
+        private Stream GetBody(HttpListenerContext context)
+        {
+            if (!context.Request.HasEntityBody)
+            {
+                return null;
+            }
 
-        /*
-                private static void IgnoreFailure(Action a)
-                {
-                    try
-                    {
-                        a();
-                    }
-                    // ReSharper disable EmptyGeneralCatchClause
-                    catch
-                    // ReSharper restore EmptyGeneralCatchClause
-                    {
-                    }
-                }
+            System.IO.Stream body = context.Request.InputStream; // Stream형식으로 받아오기 
+                                                                 //원하는 자료형에 따라 변환하여 사용가능
 
-                public static void Main(string[] args)
-                {
-                    const int numConcurrent = 4;
-                    IgnoreFailure(() =>
-                    {
-                        using (var hl = new HttpListener())
-                        {
-                            var tasks = new Task[numConcurrent];
-                            var cts = new CancellationTokenSource();
+            return body;
+        }
 
-                            try
-                            {
-                                hl.Prefixes.Add("http://127.0.0.1:8080/helloworld/");
-                                hl.Start();
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine(ex);
-                                Environment.Exit(-1);
-                            }
-                            for (var i = 0; i < tasks.Length; ++i)
-                            {
-                                Start(tasks, i, cts.Token, hl);
-                            }
-                            Console.WriteLine("Press any key to stop server.");
-                            Console.ReadKey();
-                            cts.Cancel();
-                            foreach (var t in tasks)
-                            {
-                                t.Wait(TimeSpan.FromSeconds(30));
-                            }
-                            hl.Stop();
-                        }
-                    }
-                        );
-                }
+        void listner_GetContext()
+        {
+            HttpListener listener = new HttpListener();
+            listener.Prefixes.Add("http://127.0.0.1:8080/");
+            listener.Start();
 
-                private static void Start(Task[] tasks, int i, CancellationToken token, HttpListener hl)
-                {
-                    tasks[i] =
-                        hl
-                            .GetContextAsync()
-                            .ContinueWith(ProcessRequest, token)
-                            .ContinueWith(_ => Start(tasks, i, token, hl), token);
-                }
 
-                private static void ProcessRequest(Task<HttpListenerContext> task)
-                {
-                    IgnoreFailure(() =>
-                    {
-                        if (!task.IsCompleted)
-                            return;
-                        var ctx = task.Result;
-                        var filename =
-                            ctx.Request.Url.AbsolutePath.ToLowerInvariant()
-                               .Split('/')
-                               .SkipWhile(x => x != "test")
-                               .Skip(1)
-                               .First()
-                            ;
-                        var buffer = Encoding.UTF8.GetBytes(filename);
-                        ctx.Response.ContentType = "text/plain";
-                        ctx.Response.OutputStream.Write(buffer, 0, buffer.Length);
-                        ctx.Response.Close();
-                    }
-                        );
-                }
-                */
+            // Samples
+            var context = listener.GetContext();
+            var request = context.Request;
+            string text;
+            using (var reader = new StreamReader(request.InputStream,
+                                                 request.ContentEncoding))
+            {
+                text = reader.ReadToEnd();
+            }
+
+
+
+            string path = "image";
+
+            if (path == "/image")
+            {
+                sendImage(context);
+            }
+            else
+            {
+                notFound(context);
+            }
+        }
+        // Use text here
+
+        void notFound(HttpListenerContext ctx)
+        {
+            HttpListenerResponse resp = ctx.Response;
+            resp.Headers.Set("Content-Type", "text/plain");
+
+            Stream ros = resp.OutputStream;
+
+            ctx.Response.StatusCode = (int)HttpStatusCode.NotFound;
+            string err = "404 - not found";
+
+            byte[] ebuf = Encoding.UTF8.GetBytes(err);
+            resp.ContentLength64 = ebuf.Length;
+
+            ros.Write(ebuf, 0, ebuf.Length);
+        }
+
+        void sendImage(HttpListenerContext ctx)
+        {
+            HttpListenerResponse resp = ctx.Response;
+            resp.Headers.Set("Content-Type", "image/png");
+
+            byte[] buf = File.ReadAllBytes("public/img/sid.png");
+            resp.ContentLength64 = buf.Length;
+
+            Stream ros = resp.OutputStream;
+            ros.Write(buf, 0, buf.Length);
+        }
+        
     }
 }
